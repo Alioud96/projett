@@ -7,9 +7,11 @@ cur = conn.cursor()
 
 # # Creation de la table depense 
 
-def create_table():
+def table_depense():
     cur.execute(
         "CREATE TABLE depense(id INTEGER PRIMARY KEY, habillement numeric, loyer numeric, nourriture numeric, transport numeric)")
+    
+table_depense()   
     
        #Definition de la fonction
        
@@ -41,15 +43,14 @@ else:
 
 conn.commit()
 
-def create_table1():
-    req="CREATE TABLE revenu(id INTEGER PRIMARY KEY, salaire numeric, business numeric, pension numeric, allocation numeric)"
-    cur.execute(req) 
+def table_revenu():
+    req1="CREATE TABLE revenu(id INTEGER PRIMARY KEY, salaire numeric, business numeric, pension numeric, allocation numeric)"
+    cur.execute(req1) 
     conn.commit()
     
-create_table1()
+table_revenu()
 
-
-       #Definition de la fonction
+#Definition de la fonction
        
 def ajouter_revenu():
     salaire = int(input("donner le revenu de votre salaire "))
@@ -61,6 +62,7 @@ def ajouter_revenu():
     conn.commit()
         
 # afficher la fonction
+
 ajouter_revenu()  
 
 # calcul du revenu total
@@ -83,6 +85,7 @@ else:
 conn.commit()
 
 # calcul de l'ecart
+
 if total_depense < total_revenu:
     ecart = total_revenu-total_depense
     print("l'ecart entre les depenses et les  revenus est :"+str(ecart)+"fcfa")
